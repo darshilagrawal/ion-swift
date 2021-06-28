@@ -10,6 +10,9 @@
 		D54AF23B268649E900D15051 /* Amazon_ion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54AF231268649E900D15051 /* Amazon_ion.framework */; };
 		D54AF240268649E900D15051 /* Amazon_ionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AF23F268649E900D15051 /* Amazon_ionTests.swift */; };
 		D54AF242268649E900D15051 /* Amazon_ion.h in Headers */ = {isa = PBXBuildFile; fileRef = D54AF234268649E900D15051 /* Amazon_ion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5D39AC3268A300000DC7A1D /* Amazon_ion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D39AC2268A300000DC7A1D /* Amazon_ion.swift */; };
+		D5D39AC5268A374200DC7A1D /* IONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D39AC4268A374200DC7A1D /* IONEncoder.swift */; };
+		D5D39AC7268A375000DC7A1D /* IONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D39AC6268A375000DC7A1D /* IONDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		D54AF23A268649E900D15051 /* Amazon-ionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Amazon-ionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54AF23F268649E900D15051 /* Amazon_ionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amazon_ionTests.swift; sourceTree = "<group>"; };
 		D54AF241268649E900D15051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5D39AC2268A300000DC7A1D /* Amazon_ion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amazon_ion.swift; sourceTree = "<group>"; };
+		D5D39AC4268A374200DC7A1D /* IONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONEncoder.swift; sourceTree = "<group>"; };
+		D5D39AC6268A375000DC7A1D /* IONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,9 @@
 			children = (
 				D54AF234268649E900D15051 /* Amazon_ion.h */,
 				D54AF235268649E900D15051 /* Info.plist */,
+				D5D39AC2268A300000DC7A1D /* Amazon_ion.swift */,
+				D5D39AC4268A374200DC7A1D /* IONEncoder.swift */,
+				D5D39AC6268A375000DC7A1D /* IONDecoder.swift */,
 			);
 			path = "Amazon-ion";
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					D54AF230268649E900D15051 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					D54AF239268649E900D15051 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -215,6 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D39AC3268A300000DC7A1D /* Amazon_ion.swift in Sources */,
+				D5D39AC7268A375000DC7A1D /* IONDecoder.swift in Sources */,
+				D5D39AC5268A374200DC7A1D /* IONEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +375,7 @@
 		D54AF246268649E900D15051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6AD2RY8S5T;
@@ -378,6 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Darshil.Amazon-ion";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,6 +401,7 @@
 		D54AF247268649E900D15051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6AD2RY8S5T;
@@ -410,6 +426,7 @@
 		D54AF249268649E900D15051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AD2RY8S5T;
 				INFOPLIST_FILE = "Amazon-ionTests/Info.plist";
@@ -428,6 +445,7 @@
 		D54AF24A268649E900D15051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AD2RY8S5T;
 				INFOPLIST_FILE = "Amazon-ionTests/Info.plist";
