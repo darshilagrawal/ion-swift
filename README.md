@@ -1,4 +1,4 @@
-# ion-swift
+# IonSwift
 
 A Swift implementation of [Amazon Ion](https://amzn.github.io/ion-docs/).
 
@@ -69,7 +69,24 @@ Architecturally, we have 2 possible approaches to take:
 
 ### Option 1
 
-The first (and preferred) option is to build a pure Swift implementation.
+The first option is to build a Swift API on top of the existing C implementation.
+
+We will be starting with this option.
+
+#### Advantages
+
+- We don’t need to reimplement what the C library already does, hence is likely easier and quicker to do
+- We can easily pick up bug fixes and performance improvements made to the C implementation
+
+#### Disadvantages
+
+- No memory safety
+- Dependency on C implementation
+
+
+### Option 1
+
+The second option is to build a pure Swift implementation.
 
 #### Advantages
 
@@ -81,16 +98,9 @@ The first (and preferred) option is to build a pure Swift implementation.
 - We don't benefit from bug fixes and performance improvements made to the C implementation
 - Will likely take longer to do than Option 2
 
-### Option 2
+## Project Setup
 
-The second option is to build a Swift API on top of the existing C implementation 
-
-#### Advantages
-
-- We don’t need to reimplement what the C library already does, hence is likely easier and quicker to do
-- We can easily pick up bug fixes and performance improvements made to the C implementation
-
-#### Disadvantages
-
-- No memory safety
-- Dependency on C implementation
+- Clone the repository.
+- Ensure you have ruby 2.7.3 installed. 
+- Run `bundle install`.
+- Run `./create-xcodeproj.sh`. This will open the Xcode project that you can use to work on the project.

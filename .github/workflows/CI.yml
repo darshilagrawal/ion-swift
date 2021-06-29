@@ -1,0 +1,48 @@
+name: Check
+
+on: pull_request
+
+jobs:
+  Check:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+        token: ${{ secrets.GH_PAT }}
+        
+    - name: Checkout LFS files
+      run: git lfs checkout
+      
+    - name: Download tools
+      run: ./download-tools.sh
+
+    - name: Swiftformat
+      run: ./bin/swiftformat .
+
+    - name: Commit formatted code
+      id: commit-format-action
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_user_name: Swiggy DLS Bot
+        commit_user_email: no-reply@external.swiggy.in
+        commit_message: 'Format code'
+      
+    - name: Install dependencies
+      if: steps.commit-format-action.outputs.changes_detected == 'false'
+      run: bundle install
+      
+    - name: Generate project
+      if: steps.commit-format-action.outputs.changes_detected == 'false'
+      run: swift package generate-xcodeproj
+      
+    - name: Xcode build and test
+      if: steps.commit-format-action.outputs.changes_detected == 'false'
+      run: set -o pipefail && xcodebuild test -project IonSwift.xcodeproj -scheme IonSwift-Package | XCPRETTY_JSON_FILE_OUTPUT=xcodebuild.json xcpretty -f `xcpretty-json-formatter`
+      
+    - name: Run Danger
+      if: ${{ always() && steps.commit-format-action.outputs.changes_detected == 'false' }}
+      run: bundle exec danger
+      env:
+        GITHUB_USERNAME: ${{github.actor}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
