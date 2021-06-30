@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/attaswift/BigInt.git",
+        "state": {
+          "branch": null,
+          "revision": "889a1ecacd73ccc189c5cb29288048f186c44ed9",
+          "version": "5.2.1"
+        }
+      },
+      {
+        "package": "OrderedDictionary",
+        "repositoryURL": "https://github.com/lukaskubanek/OrderedDictionary.git",
+        "state": {
+          "branch": null,
+          "revision": "acb62df76052bef95a918d26f12bf4996b8587ea",
+          "version": "2.4.0"
+        }
+      },
+      {
+        "package": "PotentCodables",
+        "repositoryURL": "https://github.com/outfoxx/PotentCodables.git",
+        "state": {
+          "branch": null,
+          "revision": "876ff4afdc6d54cbe90f0fd7fecc1e9cdcf56fdd",
+          "version": "1.8.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
