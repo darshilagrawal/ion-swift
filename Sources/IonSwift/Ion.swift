@@ -78,6 +78,8 @@ public enum ION{
     case string(String)
     case number(Number)
     case bool(Bool)
+    case array([ION])
+    case object([String: ION])
     
     public var isNull: Bool{
         if case .null = self{
@@ -119,6 +121,15 @@ public enum ION{
       guard case .bool(let value) = self else { return nil }
       return value
     }
+    public var arrayValue: [ION]? {
+      guard case .array(let value) = self else { return nil }
+      return value
+    }
+
+    public var objectValue: [String: ION]? {
+      guard case .object(let value) = self else { return nil }
+      return value
+    }
 }
 
 extension ION: Equatable {}
@@ -130,6 +141,12 @@ extension ION: Value{
         case .bool(let value): return value
         case .string(let value): return value
         case .number(let value): return value
+        case .array(let value): return Array(value.map{
+            $0.unwrapped})
+        case .object(let value): return
+            Dictionary(uniqueKeysWithValues: value.map{
+                key,value in (key, value.unwrapped)
+            })
         }
     }
 }
